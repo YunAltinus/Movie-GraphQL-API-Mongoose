@@ -1,0 +1,51 @@
+scalar Date
+
+type Query {
+  user(id: ID!): User!
+  users: [User!]!
+}
+
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  password: String
+  role: String!
+  blocked: Boolean!
+  slug:String!
+  createdAt: Date!
+  website: String
+  about: String
+  place: String
+  birth: Int
+  movies:[Movie]!
+  comments:[Comment]!
+}
+
+type Mutation {
+  createUser(data: createUserInput!): Token
+  updateUser(id: ID!, data: updateUserInput!): Token
+  deleteUser(id: ID!): String!
+}
+
+input createUserInput {
+  username: String!
+  password: String!
+  email: String!
+  checkPassword: String!
+  website: String
+  place: String
+  about: String
+  birth: Int
+}
+
+input updateUserInput {
+  username: String
+  password: String!
+  checkPassword: String!
+  place: String
+  blocked: Boolean
+  email: String!
+  about: String
+  birth: Int
+}

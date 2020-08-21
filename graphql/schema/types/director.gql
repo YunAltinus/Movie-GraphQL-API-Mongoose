@@ -1,0 +1,35 @@
+scalar Date
+
+type Query {
+  director(id: ID!): Director!
+  directors: [Director!]!
+}
+
+type Director {
+  id: ID!
+  name: String!
+  about: String
+  birth: Int
+  slug:String!
+  createdAt: Date!
+  movies: [Movie]!
+}
+
+type Mutation {
+  createDirector(data: createDirectorInput!): Director!
+  updateDirector(data: updateDirectorInput!): String!
+  deleteDirector(id: ID!): String!
+}
+
+input createDirectorInput {
+  name: String!
+  about: String!
+  birth: Int!
+}
+
+input updateDirectorInput {
+  id: ID!
+  name: String
+  about: String
+  birth: Int
+}

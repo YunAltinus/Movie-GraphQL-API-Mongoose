@@ -1,0 +1,30 @@
+scalar Date
+
+type Query {
+  comment(id: ID!): Comment!
+  comments: [Comment!]!
+}
+
+type Comment {
+  id: ID!
+  content: String!
+  createdAt: Date!
+  user_id: ID!
+  movie_id: ID!
+  user: User
+  movie: Movie
+  parent_comment_id: ID
+  childrenComments: [Comment]
+}
+
+type Mutation {
+  createComment(data: createCommentInput!): Comment!
+  deleteComment(id: ID!): String!
+}
+
+input createCommentInput {
+  content: String!
+  movie_id: ID!
+  user_id: ID!
+  parent_comment_id: ID
+}

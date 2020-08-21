@@ -1,0 +1,40 @@
+scalar Date
+
+type Query {
+  movie(id: ID!): Movie!
+  movies: [Movie!]!
+}
+
+type Movie {
+  id: ID!
+  name: String!
+  description: String
+  year: Int
+  createdAt: Date!
+  slug: String!
+  director_id: ID!
+  director: Director
+  user: User!
+}
+
+type Mutation {
+  createMovie(data: createMovieInput!): Movie!
+  updateMovie(data: updateMovieInput!): String!
+  deleteMovie(id: ID!): String!
+}
+
+input createMovieInput {
+  name: String!
+  description: String!
+  year: Int!
+  director_id: ID!
+  user_id: ID!
+}
+
+input updateMovieInput {
+  id: ID!
+  name: String
+  description: String
+  year: Int
+  directorId: ID
+}

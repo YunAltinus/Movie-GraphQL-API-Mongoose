@@ -1,0 +1,14 @@
+# import Query from './types/token.gql'
+
+# import Query from './types/user.gql'
+# import Mutation from './types/user.gql'
+
+# import Query from './types/comment.gql'
+# import Mutation from './types/comment.gql'
+
+
+# import Query from './types/movie.gql'
+# import Mutation from './types/movie.gql'
+
+# import Query from './types/director.gql'
+# import Mutation from './types/director.gql'
