@@ -31,6 +31,8 @@ const server = new ApolloServer({
     Comment,
     activeUser: req ? req.activeUser : null,
   }),
+  introspection: true,
+  playground: true,
 });
 
 const app = express();
@@ -40,6 +42,6 @@ app.use(getAccessToken);
 
 server.applyMiddleware({ app });
 
-app.listen({ port: 4000 }, () =>
+app.listen({ port: process.env.PORT || 4000 }, () =>
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
 );
